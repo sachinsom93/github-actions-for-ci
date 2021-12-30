@@ -3,3 +3,12 @@ on: pull_request_review
 jobs:
   labelWhenApproved:
     runs-on: ubuntu-latest
+    steps:
+    - name: Add Approve label on 1 Approval
+      uses: pullreminders/label-when-approved-action@master
+      env:
+        APPROVALS: "1"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ADD_LABEL: "Ready%20To&20Merge"
+        REMOVE_LABEL: "Awaiting%20Review"
+
